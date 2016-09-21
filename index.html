@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>cipher</title>
+</head>
+<body>
+	<div>F12 console看效果</div>
+</body>
+<script src="cipher.min.js"></script>
+<script>
+//new对象！
+var cipher = new Cipher();
+
+//md5加密
+var md5 = cipher.md5('123');
+console.log("md5:"+md5);
+
+//获取公私钥，该私钥可能跟ios和android的无法互解，尽可能不要使用，使用后端或者网站上面生成的
+var pairkey = cipher.getRSAkey();
+var publickey = pairkey.public_key;
+var privatekey = pairkey.private_key;
+console.log(publickey);
+console.log(privatekey);
+
+//RSA加解密字符串
+var string = '12345678';
+var enString = cipher.RSAencrypt(publickey,string);      //加密
+var deString = cipher.RSAdecrypt(privatekey,enString);   //解密
+console.log("RSA加密信息:"+enString);
+console.log("RSA解密信息:"+deString);
+
+//rando生成一个数字英文的随机数
+var randoString = cipher.rando(16);
+console.log("rando:"+randoString);
+
+//AES加解密,使用的是pkcs7 ECB!可以跟ios和android互解,第一个参数需要自己生成一个AES密钥(16,32位！)，此处直接用randoString
+var AESenString = cipher.AESencrypt(randoString,'1234567890');
+var AESdeString = cipher.AESdecrypt(randoString,AESenString);
+console.log("AES加密:"+AESenString);
+console.log("AES解密:"+AESdeString);
+</script>
+</html>

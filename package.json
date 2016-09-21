@@ -1,0 +1,27 @@
+{
+  "name": "cipher",
+  "version": "1.0.0",
+  "description": "cipher handle",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-rev-all": "^0.8.24",
+    "gulp-uglify": "^2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuaisufei/Cipher.git"
+  },
+  "author": "kuaisufei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kuaisufei/Cipher/issues"
+  },
+  "homepage": "https://github.com/kuaisufei/Cipher#readme"
+}
